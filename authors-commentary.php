@@ -25,3 +25,23 @@
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
+ 
+/**
+ * The core plugin class that is used to define the meta boxes, their tabs,
+ * the views, and the partial content for each of the tabs.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'wp_metabox/class-authors-commentary.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Everything for this particular plugin will be done so from within the
+ * Author_Commentary/admin subpackage. This means that there is no reason to setup
+ * any hooks until we're in the context of the Author_Commentary_Admin class.
+ *
+ * @since    0.1.0
+ */
+function run_author_commentary() {
+    $author_commentary = new Author_Commentary_Admin( 'acme-plugin-name', '0.1.0' );
+}
+run_author_commentary();
